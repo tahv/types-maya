@@ -1,0 +1,12 @@
+[project]
+name = "types-maya"
+version = "0.1.0"
+description = "External type annotations for Autodesk Maya Python API"
+readme = "README.md"
+authors = [{ name = "Thibaud Gambier" }]
+requires-python = ">=3.8"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
