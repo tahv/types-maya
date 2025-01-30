@@ -158,6 +158,40 @@ class MFnAttribute(MFnBase):
     @writable.setter
     def writable(self, value: bool) -> None: ...
 
+_MFnDataType: typing.TypeAlias = typing.Literal[
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26,
+]  # fmt: off
+
+class MFnData:
+    kInvalid: typing.Literal[0]
+    kNumeric: typing.Literal[1]
+    kPlugin: typing.Literal[2]
+    kPluginGeometry: typing.Literal[3]
+    kString: typing.Literal[4]
+    kMatrix: typing.Literal[5]
+    kStringArray: typing.Literal[6]
+    kDoubleArray: typing.Literal[7]
+    kFloatArray: typing.Literal[8]
+    kIntArray: typing.Literal[9]
+    kPointArray: typing.Literal[10]
+    kVectorArray: typing.Literal[11]
+    kMatrixArray: typing.Literal[12]
+    kComponentList: typing.Literal[13]
+    kMesh: typing.Literal[14]
+    kLattice: typing.Literal[15]
+    kNurbsCurve: typing.Literal[16]
+    kNurbsSurface: typing.Literal[17]
+    kSphere: typing.Literal[18]
+    kDynArrayAttrs: typing.Literal[19]
+    kDynSweptGeometry: typing.Literal[20]
+    kSubdSurface: typing.Literal[21]
+    kNObject: typing.Literal[22]
+    kNId: typing.Literal[23]
+    kAny: typing.Literal[24]
+    kFalloffFunction: typing.Literal[25]
+    kLast: typing.Literal[26]
+
 _MAngleUnit: typing.TypeAlias = typing.Literal[0, 1, 2, 3, 4, 5]
 
 class MAngle:
