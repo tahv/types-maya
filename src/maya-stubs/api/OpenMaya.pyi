@@ -193,7 +193,7 @@ class MFnData:
     kLast: typing.Literal[26]
 
 class MMatrix:
-    kTolerance: float  # 1e-10
+    kTolerance: float = 1e-10
     kIdentity: MMatrix
 
     @typing.overload
