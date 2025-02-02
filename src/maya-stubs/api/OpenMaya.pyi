@@ -358,6 +358,18 @@ class MTransformationMatrix:
     ) -> typing.Self: ...
     def translateBy(self, vec: MVector, space: _MSpaceSpace, /) -> typing.Self: ...
     def translation(self, space: _MSpaceSpace, /) -> MVector: ...
+
+_MSpaceSpace: typing.TypeAlias = typing.Literal[0, 1, 2, 3, 4, 5]
+
+class MSpace:
+    kInvalid: typing.Literal[0]
+    kTransform: typing.Literal[1]
+    kPreTransform: typing.Literal[2]
+    kObject: typing.Literal[2]
+    kPostTransform: typing.Literal[3]
+    kWorld: typing.Literal[4]
+    kLast: typing.Literal[5]
+
 _MAngleUnit: typing.TypeAlias = typing.Literal[0, 1, 2, 3, 4, 5]
 
 class MAngle:
