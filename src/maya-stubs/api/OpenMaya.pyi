@@ -67,7 +67,6 @@ MFnMatrixAttribute: Incomplete
 MFnMatrixData: Incomplete
 MFnMesh: Incomplete
 MFnMeshData: Incomplete
-MFnMessageAttribute: Incomplete
 MFnNumericAttribute: Incomplete
 MFnNumericData: Incomplete
 MFnNurbsCurve: Incomplete
@@ -714,6 +713,9 @@ class MTime:
     def value(self) -> float: ...
     @value.setter
     def value(self, value: float) -> None: ...
+
+class MFnMessageAttribute(MFnAttribute):
+    def create(self, longName: str, shortName: str, /) -> MObject: ...
 
 class MFn:
     kACos: typing.Literal[1160]
