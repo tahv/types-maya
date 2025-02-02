@@ -63,7 +63,6 @@ MFnGeometryData: Incomplete
 MFnIntArrayData: Incomplete
 MFnLightDataAttribute: Incomplete
 MFnMatrixArrayData: Incomplete
-MFnMatrixAttribute: Incomplete
 MFnMatrixData: Incomplete
 MFnMesh: Incomplete
 MFnMeshData: Incomplete
@@ -716,6 +715,24 @@ class MTime:
 
 class MFnMessageAttribute(MFnAttribute):
     def create(self, longName: str, shortName: str, /) -> MObject: ...
+
+_MFnMatrixAttributeType: typing.TypeAlias = typing.Literal[0, 1]
+
+class MFnMatrixAttribute(MFnAttribute):
+    kFloat: typing.Literal[0]
+    kDouble: typing.Literal[1]
+
+    def create(
+        self,
+        longName: str,
+        shortName: str,
+        /,
+        type: _MFnMatrixAttributeType = kDouble,
+    ) -> MObject: ...
+    @property
+    def default(self) -> MMatrix: ...
+    @default.setter
+    def default(self, value: MMatrix | MFloatMatrix) -> None: ...
 
 class MFn:
     kACos: typing.Literal[1160]
