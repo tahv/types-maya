@@ -751,6 +751,10 @@ class MTime:
     def value(self, value: float) -> None: ...
 
 class MFnMessageAttribute(MFnAttribute):
+    @typing.overload
+    def __init__(self) -> None: ...
+    @typing.overload
+    def __init__(self, object: MObject, /) -> None: ...
     def create(self, longName: str, shortName: str, /) -> MObject: ...
 
 class MFnEnumAttribute(MFnAttribute):
@@ -778,6 +782,10 @@ class MFnMatrixAttribute(MFnAttribute):
     kFloat: typing.Literal[0]
     kDouble: typing.Literal[1]
 
+    @typing.overload
+    def __init__(self) -> None: ...
+    @typing.overload
+    def __init__(self, object: MObject, /) -> None: ...
     def create(
         self,
         longName: str,
