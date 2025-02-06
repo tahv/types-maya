@@ -64,7 +64,6 @@ MFnMatrixData: Incomplete
 MFnMesh: Incomplete
 MFnMeshData: Incomplete
 MFnNumericAttribute: Incomplete
-MFnNumericData: Incomplete
 MFnNurbsCurve: Incomplete
 MFnNurbsCurveData: Incomplete
 MFnNurbsSurface: Incomplete
@@ -335,6 +334,44 @@ class MFnData:
     kAny: typing.Literal[24]
     kFalloffFunction: typing.Literal[25]
     kLast: typing.Literal[26]
+
+_MFnNumericDataType: typing.TypeAlias = typing.Literal[
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+]  # fmt: off
+
+class MFnNumericData(MFnData):
+    kInvalid: typing.Literal[0]
+    kBoolean: typing.Literal[1]
+    kByte: typing.Literal[2]
+    kChar: typing.Literal[3]
+    kShort: typing.Literal[4]
+    k2Short: typing.Literal[5]
+    k3Short: typing.Literal[6]
+    kInt: typing.Literal[7]
+    kLong: typing.Literal[7]
+    k2Int: typing.Literal[8]
+    k2Long: typing.Literal[8]
+    k3Int: typing.Literal[9]
+    k3Long: typing.Literal[9]
+    kInt64: typing.Literal[10]
+    kFloat: typing.Literal[11]
+    k2Float: typing.Literal[12]
+    k3Float: typing.Literal[13]
+    kDouble: typing.Literal[14]
+    k2Double: typing.Literal[15]
+    k3Double: typing.Literal[16]
+    k4Double: typing.Literal[17]
+    kAddr: typing.Literal[18]
+    kLast: typing.Literal[19]
+
+    @typing.overload
+    def __init__(self) -> None: ...
+    @typing.overload
+    def __init__(self, object: MObject, /) -> None: ...
+    def create(self, type: _MFnNumericDataType, /) -> MObject: ...
+    def getData(self) -> list[float]: ...
+    def numericType(self) -> int: ...
+    def setData(self, seq: list[float], /) -> typing.Self: ...
 
 class MMatrix:
     kTolerance: float = 1e-10
