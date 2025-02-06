@@ -335,6 +335,11 @@ class MFnData:
     kFalloffFunction: typing.Literal[25]
     kLast: typing.Literal[26]
 
+    @typing.overload
+    def __init__(self) -> None: ...
+    @typing.overload
+    def __init__(self, object: MObject, /) -> None: ...
+
 _MFnNumericDataType: typing.TypeAlias = typing.Literal[
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 ]  # fmt: off
