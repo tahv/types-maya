@@ -57,7 +57,6 @@ MFnDoubleArrayData: Incomplete
 MFnDoubleIndexedComponent: Incomplete
 MFnGeometryData: Incomplete
 MFnIntArrayData: Incomplete
-MFnLightDataAttribute: Incomplete
 MFnMatrixArrayData: Incomplete
 MFnMatrixData: Incomplete
 MFnMesh: Incomplete
@@ -840,6 +839,31 @@ class MFnGenericAttribute(MFnAttribute):
     def removeDataType(self, type: _MFnDataType, /) -> typing.Self: ...
     def removeNumericType(self, type: _MFnNumericDataType, /) -> typing.Self: ...
     def removeTypeId(self, typeId: MTypeId, /) -> typing.Self: ...
+
+class MFnLightDataAttribute(MFnAttribute):
+    @typing.overload
+    def __init__(self) -> None: ...
+    @typing.overload
+    def __init__(self, object: MObject, /) -> None: ...
+    def child(self, index: int, /) -> MObject: ...
+    def create(
+        self,
+        longName: str,
+        shortName: str,
+        direction: MObject,
+        intensity: MObject,
+        ambient: MObject,
+        diffuse: MObject,
+        specular: MObject,
+        shadowFraction: MObject,
+        preShadowIntensity: MObject,
+        blindData: MObject,
+        /,
+    ) -> MObject: ...
+    @property
+    def default(self) -> Incomplete: ...
+    @default.setter
+    def default(self, value: Incomplete) -> None: ...
 
 _MFnMatrixAttributeType: typing.TypeAlias = typing.Literal[0, 1]
 
