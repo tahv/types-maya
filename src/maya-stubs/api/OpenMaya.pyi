@@ -76,7 +76,6 @@ MFnStringData: Incomplete
 MFnTransform: Incomplete
 MFnTripleIndexedComponent: Incomplete
 MFnUInt64ArrayData: Incomplete
-MFnUnitAttribute: Incomplete
 MFnVectorArrayData: Incomplete
 MGlobal: Incomplete
 MImage: Incomplete
@@ -916,6 +915,62 @@ class MFnNumericAttribute(MFnAttribute):
     def default(self) -> float | tuple[float, ...]: ...
     @default.setter
     def default(self, value: float | tuple[float, ...]) -> None: ...
+
+_MFnUnitAttributeUnitType: typing.TypeAlias = typing.Literal[0, 1, 2, 3, 4]
+
+class MFnUnitAttribute(MFnAttribute):
+    kInvalid: typing.Literal[0]
+    kAngle: typing.Literal[1]
+    kDistance: typing.Literal[2]
+    kTime: typing.Literal[3]
+    kLast: typing.Literal[4]
+
+    @typing.overload
+    def __init__(self) -> None: ...
+    @typing.overload
+    def __init__(self, object: MObject, /) -> None: ...
+    @typing.overload
+    def create(
+        self,
+        longName: str,
+        shortName: str,
+        type: _MFnUnitAttributeUnitType,
+        /,
+        defaultValue: float = 0.0,
+    ) -> MObject: ...
+    @typing.overload
+    def create(
+        self,
+        longName: str,
+        shortName: str,
+        defaultValue: MAngle | MTime | MDistance,
+        /,
+    ) -> MObject: ...
+    def getMax(self) -> MAngle | MTime | MDistance: ...
+    def getMin(self) -> MAngle | MTime | MDistance: ...
+    def getSoftMax(self) -> MAngle | MTime | MDistance: ...
+    def getSoftMin(self) -> MAngle | MTime | MDistance: ...
+    def hasMax(self) -> bool: ...
+    def hasMin(self) -> bool: ...
+    def hasSoftMax(self) -> bool: ...
+    def hasSoftMin(self) -> bool: ...
+    def setMax(
+        self, maxValue: float | MAngle | MTime | MDistance, /
+    ) -> typing.Self: ...
+    def setMin(
+        self, maxValue: float | MAngle | MTime | MDistance, /
+    ) -> typing.Self: ...
+    def setSoftMax(
+        self, maxValue: float | MAngle | MTime | MDistance, /
+    ) -> typing.Self: ...
+    def setSoftMin(
+        self, maxValue: float | MAngle | MTime | MDistance, /
+    ) -> typing.Self: ...
+    def unitType(self) -> _MFnUnitAttributeUnitType: ...
+    @property
+    def default(self) -> MAngle | MTime | MDistance: ...
+    @default.setter
+    def default(self, value: MAngle | MTime | MDistance) -> None: ...
 
 class MFnTypedAttribute(MFnAttribute):
     @typing.overload
