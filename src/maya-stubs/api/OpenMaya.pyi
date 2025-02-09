@@ -75,7 +75,6 @@ MFnStringArrayData: Incomplete
 MFnStringData: Incomplete
 MFnTransform: Incomplete
 MFnTripleIndexedComponent: Incomplete
-MFnTypedAttribute: Incomplete
 MFnUInt64ArrayData: Incomplete
 MFnUnitAttribute: Incomplete
 MFnVectorArrayData: Incomplete
@@ -917,6 +916,24 @@ class MFnNumericAttribute(MFnAttribute):
     def default(self) -> float | tuple[float, ...]: ...
     @default.setter
     def default(self, value: float | tuple[float, ...]) -> None: ...
+
+class MFnTypedAttribute(MFnAttribute):
+    @typing.overload
+    def __init__(self) -> None: ...
+    @typing.overload
+    def __init__(self, object: MObject, /) -> None: ...
+    def attrType(self) -> _MFnDataType: ...
+    def create(
+        self,
+        longName: str,
+        shortName: str,
+        type: MTypeId | _MFnDataType,
+        defaultValue: MObject = MObject.kNullObj,
+    ) -> _MFnDataType: ...
+    @property
+    def default(self) -> MObject: ...
+    @default.setter
+    def default(self, value: MObject) -> None: ...
 
 class MFn:
     kACos: typing.Literal[1160]
