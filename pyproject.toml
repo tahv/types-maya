@@ -6,6 +6,14 @@ authors = [{ name = "Thibaud Gambier" }]
 requires-python = ">=3.8"
 dependencies = []
 dynamic = ["version"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Typing :: Stubs Only",
+]
 urls.Repository = "https://github.com/tahv/types-maya"
 urls.PyPI = "https://pypi.org/project/types-maya"
 
