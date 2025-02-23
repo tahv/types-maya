@@ -28,18 +28,21 @@ which means they are currently far from complete.
 
 ## Installation
 
-<!--
-`types-maya` is current not available on PyPI.
-Although the package [is listed on PyPI](https://pypi.org/project/types-maya/)
-it is empty and only serves to reserve the name.
--->
+Install with [pip](https://pip.pypa.io/en/stable/topics/vcs-support/#git)
+or [uv pip](https://docs.astral.sh/uv/pip/packages/#installing-a-package).
 
+```bash
+pip install types-maya
+```
+
+<!--
 Install from vcs with [pip](https://pip.pypa.io/en/stable/topics/vcs-support/#git)
 or [uv pip](https://docs.astral.sh/uv/pip/packages/#installing-a-package).
 
 ```bash
 pip install git+https://github.com/tahv/types-maya@main
 ```
+-->
 
 ## Contributing
 
