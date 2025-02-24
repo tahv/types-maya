@@ -3,7 +3,7 @@ default:
   @just --list
 
 sync:
-  uvx sync --group dev
+  uv sync --group dev
 
 # Run linter
 lint *files:
