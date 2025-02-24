@@ -23,7 +23,6 @@ MConditionMessage: Incomplete
 MContainerMessage: Incomplete
 MDAGDrawOverrideInfo: Incomplete
 MDagMessage: Incomplete
-MDagModifier: Incomplete
 MDagPath: Incomplete
 MDagPathArray: Incomplete
 MDataBlock: Incomplete
@@ -1081,6 +1080,20 @@ class MDGModifier:
     def undoIt(self) -> typing.Self: ...
     def unlinkExtensionAttributeFromPlugin(
         self, plugin: MObject, attribute: MObject, /
+    ) -> typing.Self: ...
+
+class MDagModifier(MDGModifier):
+    def __init__(self) -> None: ...
+    @typing.overload
+    def createNode(
+        self, typeName: str, /, parent: MObject = MObject.kNullObj
+    ) -> MObject: ...
+    @typing.overload
+    def createNode(
+        self, typeId: MTypeId, /, parent: MObject = MObject.kNullObj
+    ) -> MObject: ...
+    def reparentNode(
+        self, node: MObject, /, newParent: MObject = MObject.kNullObj
     ) -> typing.Self: ...
 
 _MPlugMValueSelector: typing.TypeAlias = typing.Literal[0, 1, 2, 3]
