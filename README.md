@@ -1,5 +1,10 @@
 # types-maya
 
+[![Typed](https://img.shields.io/pypi/types/types-pyside2?logo=python&logoColor=white)](https://pypi.org/project/types-maya/)
+[![Version](https://img.shields.io/pypi/v/types-maya?logo=pypi&logoColor=white)](https://pypi.org/project/types-maya/)
+[![License](https://img.shields.io/github/license/tahv/types-maya)](https://github.com/tahv/types-maya/blob/main/LICENSE)
+[![CI Tests](https://img.shields.io/github/actions/workflow/status/tahv/types-maya/tests.yml?logo=github&logoColor=white&label=tests)](https://github.com/tahv/types-maya/actions/workflows/tests.yml)
+
 External type annotations for Autodesk Maya Python API.
 
 The main goal is to provide helper for [Pyright](https://github.com/microsoft/pyright)
