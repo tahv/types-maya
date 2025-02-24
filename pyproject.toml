@@ -6,6 +6,7 @@ authors = [{ name = "Thibaud Gambier" }]
 requires-python = ">=3.8"
 dependencies = []
 dynamic = ["version"]
+license = { file = "LICENSE" }
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
