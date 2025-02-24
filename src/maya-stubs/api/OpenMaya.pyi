@@ -1,6 +1,5 @@
 import typing
 
-import typing_extensions
 from _typeshed import Incomplete
 
 MArgDatabase: Incomplete
@@ -1084,8 +1083,8 @@ class MDGModifier:
         self, plugin: MObject, attribute: MObject, /
     ) -> typing.Self: ...
 
-_MPlugMValueSelector: typing_extensions.TypeAlias = typing.Literal[0, 1, 2, 3]
-_MPlugFreeToChangeState: typing_extensions.TypeAlias = typing.Literal[0, 1, 2]
+_MPlugMValueSelector: typing.TypeAlias = typing.Literal[0, 1, 2, 3]
+_MPlugFreeToChangeState: typing.TypeAlias = typing.Literal[0, 1, 2]
 
 class MPlug:
     kAll: typing.Literal[0]
