@@ -356,7 +356,7 @@ class MFnNumericData(MFnData):
     k3Double: typing.Literal[16]
     k4Double: typing.Literal[17]
     kAddr: typing.Literal[18]
-    kLast: typing.Literal[19]
+    kLast: typing.Literal[19]  # type: ignore[assignment] # pyright: ignore[reportIncompatibleVariableOverride]
 
     @typing.overload
     def __init__(self) -> None: ...

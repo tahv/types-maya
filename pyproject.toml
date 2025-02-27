@@ -48,6 +48,9 @@ warn_unused_ignores = true
 warn_redundant_casts = true
 show_error_codes = true
 
+[tool.pyright]
+enableTypeIgnoreComments = false
+
 [tool.ruff]
 src = ["src"]
 include = ["src/**/*.py", "**/pyproject.toml"]
