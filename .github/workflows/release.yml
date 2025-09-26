@@ -74,6 +74,10 @@ jobs:
       - uses: actions/download-artifact@v4
       - name: Upload package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        # https://github.com/pypa/gh-action-pypi-publish/issues/283
+        # https://github.com/pypa/gh-action-pypi-publish?tab=readme-ov-file#generating-and-uploading-attestations
+        with:
+          attestations: false
 
   # Publish to Test PyPI on commit on main.
   publish-test-pypi:
