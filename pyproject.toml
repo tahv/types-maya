@@ -40,6 +40,9 @@ local_scheme = "no-local-version"
 required-version = ">=0.5.8"
 default-groups = ["dev"]
 
+[tool.ty]
+environment.python-version = "3.10"
+
 [tool.mypy]
 files = ["src"]
 disallow_untyped_defs = true
@@ -55,6 +58,7 @@ show_error_codes = true
 enableTypeIgnoreComments = false
 
 [tool.ruff]
+target-version = "py38"
 src = ["src"]
 include = ["src/**/*.py", "**/pyproject.toml"]
 lint.select = ["ALL"]
