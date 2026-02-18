@@ -7,8 +7,8 @@
 
 External type annotations for Autodesk Maya Python API.
 
-The goal is to provide helper for [Pyright](https://github.com/microsoft/pyright)
-language server to offer better autocompletion.
+The goal is to provide stubs for [Pyright](https://github.com/microsoft/pyright)
+or [ty](https://github.com/astral-sh/ty) language servers.
 
 ## Installation
 
@@ -18,15 +18,6 @@ or [uv pip](https://docs.astral.sh/uv/pip/packages/#installing-a-package).
 ```bash
 pip install types-maya
 ```
-
-<!--
-Install from vcs with [pip](https://pip.pypa.io/en/stable/topics/vcs-support/#git)
-or [uv pip](https://docs.astral.sh/uv/pip/packages/#installing-a-package).
-
-```bash
-pip install git+https://github.com/tahv/types-maya@main
-```
--->
 
 ## Available stubs
 
