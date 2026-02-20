@@ -46,6 +46,41 @@ and i mostly focus on Maya Python API 2.0 (`maya.api`).
 The stubs are written from the
 [Maya 2025 Reference](https://help.autodesk.com/view/MAYADEV/2025/ENU/).
 
+## Notes
+
+[`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated)
+is used to add context to some annotations. Some examples:
+
+A sequence of 16 floats.
+
+```python
+Annotated[Sequence[float], "[16]"]
+```
+
+A sequence of 4 sequences of 4 floats.
+
+```python
+Annotated[Sequence[Sequence[float]], "[4[4]]"]
+```
+
+A sequence of 1 to 6 floats.
+
+```python
+Annotated[Sequence[MArgType], "[1..6]"],
+```
+
+A list of 4 int, the `x`, `y`, `x` and `w` axis.
+
+```python
+Annotated[list[int], "[x, y, z, w]"]
+```
+
+Deprecated property.
+
+```python
+Annotated[Literal[5], "deprecated"]
+```
+
 ## Contributing
 
 Contributions of any kind are welcome.
