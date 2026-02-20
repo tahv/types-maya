@@ -1,7 +1,7 @@
 from typing import ClassVar, Iterable, Literal, Sequence, SupportsIndex
 
 from _typeshed import Incomplete
-from typing_extensions import Self, TypeAlias, overload
+from typing_extensions import Annotated, Self, TypeAlias, overload
 
 __all__ = [
     "MURI",
@@ -266,7 +266,6 @@ MRampAttribute: Incomplete
 MRichSelection: Incomplete
 MSceneMessage: Incomplete
 MSelectionMask: Incomplete
-MSyntax: Incomplete
 MTimeRange: Incomplete
 MTimerMessage: Incomplete
 MURI: Incomplete
@@ -1721,6 +1720,56 @@ class MPlug:
     def isProxy(self) -> bool: ...
     @property
     def isSource(self) -> bool: ...
+
+class MSyntax:
+    MArgType: TypeAlias = Literal[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    kInvalidArgType: Literal[0]
+    kNoArg: Literal[1]
+    kBoolean: Literal[2]
+    kLong: Literal[3]
+    kDouble: Literal[4]
+    kString: Literal[5]
+    kUnsigned: Literal[6]
+    kDistance: Literal[7]
+    kAngle: Literal[8]
+    kTime: Literal[9]
+    kSelectionItem: Literal[10]
+    kLastArgType: Literal[11]
+    MObjectFormat: TypeAlias = Literal[1, 2, 3, 4]
+    kInvalidObjectFormat: Literal[0]
+    kNone: Literal[1]
+    kStringObjects: Literal[2]
+    kSelectionList: Literal[3]
+    kLastObjectFormat: Literal[4]
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, src: MSyntax, /) -> None: ...
+    def addArg(self, argType: MArgType) -> Self: ...
+    def addFlag(
+        self,
+        shortName: str,
+        longName: str,
+        argTypes: MArgType | Annotated[Sequence[MArgType], "[1..6]"],
+    ) -> Self: ...
+    def makeFlagMultiUse(self, flagName: str, /) -> Self: ...
+    def makeFlagQueryWithFullArgs(
+        self, flagName: str, argsOptional: bool, /
+    ) -> Self: ...
+    def maxObjects(self) -> int: ...
+    def minObjects(self) -> int: ...
+    def setMaxObjects(self, max: int, /) -> Self: ...
+    def setMinObjects(self, min: int, /) -> Self: ...
+    def setObjectType(self, objType: MObjectFormat, min: int, max: int, /) -> Self: ...
+    def useSelectionAsDefault(self, useSelection: bool, /) -> Self: ...
+    @property
+    def enableEdit(self) -> bool: ...
+    @enableEdit.setter
+    def enableEdit(self, value: bool) -> None: ...
+    @property
+    def enableQuery(self) -> bool: ...
+    @enableQuery.setter
+    def enableQuery(self, value: bool) -> None: ...
 
 _MAttrClass: TypeAlias = Literal[1, 2, 3, 4]
 _MdgTimerMetric: TypeAlias = Literal[0, 1, 2, 3, 4, 5, 6, 7, 8]
