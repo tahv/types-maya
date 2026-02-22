@@ -167,7 +167,6 @@ __all__ = [
     "MWeight",
 ]
 
-MCacheSchema: Incomplete
 MCallbackId: Incomplete
 MCameraMessage: Incomplete
 MCommandMessage: Incomplete
@@ -533,6 +532,11 @@ class MBoundingBox:
     def min(self) -> MPoint: ...
     @property
     def width(self) -> float: ...
+
+class MCacheSchema:
+    def __init__(self) -> None: ...
+    def add(self, attribute: MObject, /) -> Self: ...
+    def reset(self) -> None: ...
 
 class MDagPath:
     @overload
