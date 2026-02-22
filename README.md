@@ -29,7 +29,7 @@ and i mostly focus on Maya Python API 2.0 (`maya.api`).
 
 | Import name               | Status               |
 |---------------------------|----------------------|
-| `maya.api.OpenMaya`       | 🟠 Incomplete (~34%) |
+| `maya.api.OpenMaya`       | 🟠 Incomplete (~40%) |
 | `maya.api.OpenMayaAnim`   | 🔴 Not Covered       |
 | `maya.api.OpenMayaRender` | 🔴 Not Covered       |
 | `maya.api.OpenMayaUI`     | 🔴 Not Covered       |
