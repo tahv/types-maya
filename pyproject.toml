@@ -45,14 +45,8 @@ environment.python-version = "3.10"
 
 [tool.mypy]
 files = ["src"]
-disallow_untyped_defs = true
-check_untyped_defs = true
+strict = true
 disallow_any_unimported = true
-no_implicit_optional = true
-warn_return_any = true
-warn_unused_ignores = true
-warn_redundant_casts = true
-show_error_codes = true
 
 [tool.pyright]
 enableTypeIgnoreComments = false
