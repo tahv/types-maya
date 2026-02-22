@@ -1,9 +1,4 @@
 #:schema https://json.schemastore.org/pyproject.json
-# tombi: format.rules.table-keys-order.disabled = true
-
-[build-system]
-requires = ["setuptools>=64", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
 
 [project]
 name = "types-maya"
@@ -33,15 +28,9 @@ dev = [
   "pyright>=1.1.393",
 ]
 
-[tool.setuptools_scm]
-local_scheme = "no-local-version"
-
-[tool.uv]
-required-version = ">=0.5.8"
-default-groups = ["dev"]
-
-[tool.ty]
-environment.python-version = "3.10"
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
 
 [tool.mypy]
 files = ["src"]
@@ -77,3 +66,13 @@ lint.ignore = [
   "TD002",  # Missing author in TODO
   "TD003",  # Missing issue link on the line following this TODO
 ]
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
+
+[tool.ty]
+environment.python-version = "3.10"
+
+[tool.uv]
+required-version = ">=0.5.8"
+default-groups = ["dev"]
