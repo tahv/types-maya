@@ -10,9 +10,13 @@ sync:
 nvim *args:
     uv run -- nvim {{ args }}
 
-# Run linter
-lint *files:
+# Run ruff
+ruff *files:
     uvx ruff check --output-format concise {{ files }}
+
+# Run ty
+ty *files:
+    uvx ty check --output-format concise {{ files }}
 
 # Dry run formatter and output the diffs
 fmt:
