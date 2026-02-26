@@ -1,7 +1,19 @@
-from typing import Any, Callable, ClassVar, Iterable, Literal, Sequence, SupportsIndex
+from typing import (
+    Any,
+    Callable,
+    ClassVar,
+    Generic,
+    Iterable,
+    Literal,
+    Sequence,
+    SupportsIndex,
+    TypeVar,
+)
 
 from _typeshed import Incomplete
 from typing_extensions import Annotated, Self, TypeAlias, overload
+
+_T = TypeVar("_T")
 
 __all__ = [
     "MURI",
@@ -167,7 +179,6 @@ __all__ = [
     "MWeight",
 ]
 
-MCameraMessage: Incomplete
 MCommandMessage: Incomplete
 MConditionMessage: Incomplete
 MContainerMessage: Incomplete
@@ -536,7 +547,7 @@ class MCacheSchema:
     def add(self, attribute: MObject, /) -> Self: ...
     def reset(self) -> None: ...
 
-class MCallbackId: ...  # TODO(tga): No documentation
+MCallbackId: TypeAlias = int
 
 class MCallbackIdArray:
     @overload
@@ -577,6 +588,22 @@ class MCallbackIdArray:
     def sizeIncrement(self) -> int: ...
     @sizeIncrement.setter
     def sizeIncrement(self, value: int) -> None: ...
+
+class MCameraMessage(MMessage, Generic[_T]):
+    @staticmethod
+    def addBeginManipulationCallback(
+        node: MObject,
+        function: Callable[[MObject, _T], ...],
+        /,
+        clientData: _T | None = None,
+    ) -> MCallbackId: ...
+    @staticmethod
+    def addEndManipulationCallback(
+        node: MObject,
+        function: Callable[[MObject, _T], ...],
+        /,
+        clientData: _T | None = None,
+    ) -> MCallbackId: ...
 
 class MDagPath:
     @overload
@@ -953,10 +980,14 @@ class MMessage:
     kDefaultAction: Literal[0]
     kDoAction: Literal[2]
     kDoNotDoAction: Literal[1]
-    def currentCallbackId(self) -> MCallbackId: ...
-    def nodeCallbacks(self, node: MObject, /) -> MCallbackIdArray: ...
-    def removeCallback(self, id: MCallbackId, /) -> None: ...
-    def removeCallbacks(self, ids: MCallbackIdArray, /) -> None: ...
+    @staticmethod
+    def currentCallbackId() -> MCallbackId: ...
+    @staticmethod
+    def nodeCallbacks(node: MObject, /) -> MCallbackIdArray: ...
+    @staticmethod
+    def removeCallback(id: MCallbackId, /) -> None: ...
+    @staticmethod
+    def removeCallbacks(ids: MCallbackIdArray, /) -> None: ...
 
 class MFloatMatrix:
     kTolerance: Annotated[float, "9.9999997473787e-06"] = ...
