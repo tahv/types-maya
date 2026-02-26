@@ -10,7 +10,7 @@ from typing import (
 )
 
 from _typeshed import Incomplete
-from typing_extensions import Annotated, Self, TypeAlias, overload, override
+from typing_extensions import Annotated, Self, TypeAlias, overload
 
 _T = TypeVar("_T")
 
@@ -588,22 +588,22 @@ class MCameraMessage(MMessage):
     @overload
     @staticmethod
     def addBeginManipulationCallback(
-        node: MObject, function: Callable[[MObject, _T], ...], /, clientData: _T
+        node: MObject, function: Callable[[MObject, _T], Any], /, clientData: _T
     ) -> MCallbackId: ...
     @overload
     @staticmethod
     def addBeginManipulationCallback(
-        node: MObject, function: Callable[[MObject, None], ...]
+        node: MObject, function: Callable[[MObject, None], Any]
     ) -> MCallbackId: ...
     @overload
     @staticmethod
     def addEndManipulationCallback(
-        node: MObject, function: Callable[[MObject, _T], ...], /, clientData: _T
+        node: MObject, function: Callable[[MObject, _T], Any], /, clientData: _T
     ) -> MCallbackId: ...
     @overload
     @staticmethod
     def addEndManipulationCallback(
-        node: MObject, function: Callable[[MObject, None], ...]
+        node: MObject, function: Callable[[MObject, None], Any]
     ) -> MCallbackId: ...
 
 class MColor:
