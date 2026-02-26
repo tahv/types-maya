@@ -179,7 +179,6 @@ __all__ = [
     "MWeight",
 ]
 
-MCommandMessage: Incomplete
 MConditionMessage: Incomplete
 MContainerMessage: Incomplete
 MDAGDrawOverrideInfo: Incomplete
@@ -590,19 +589,25 @@ class MCallbackIdArray:
     def sizeIncrement(self, value: int) -> None: ...
 
 class MCameraMessage(MMessage, Generic[_T]):
+    @overload
     @staticmethod
     def addBeginManipulationCallback(
-        node: MObject,
-        function: Callable[[MObject, _T], ...],
-        /,
-        clientData: _T | None = None,
+        node: MObject, function: Callable[[MObject, _T], ...], /, clientData: _T
     ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addBeginManipulationCallback(
+        node: MObject, function: Callable[[MObject, None], ...]
+    ) -> MCallbackId: ...
+    @overload
     @staticmethod
     def addEndManipulationCallback(
-        node: MObject,
-        function: Callable[[MObject, _T], ...],
-        /,
-        clientData: _T | None = None,
+        node: MObject, function: Callable[[MObject, _T], ...], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addEndManipulationCallback(
+        node: MObject, function: Callable[[MObject, None], ...]
     ) -> MCallbackId: ...
 
 class MColor:
@@ -706,6 +711,57 @@ class MColorArray:
     def sizeIncrement(self) -> int: ...
     @sizeIncrement.setter
     def sizeIncrement(self, value: int) -> None: ...
+
+class MCommandMessage(MMessage, Generic[_T]):
+    ProcType: TypeAlias = Literal[0, 1]
+    kMELProc: Literal[0]
+    kMELCommand: Literal[1]
+    MessageType: TypeAlias = Literal[0, 1, 2, 3, 4, 5, 6]
+    kHistory: Literal[0]
+    kDisplay: Literal[1]
+    kInfo: Literal[2]
+    kWarning: Literal[3]
+    kError: Literal[4]
+    kResult: Literal[5]
+    kStackTrace: Literal[6]
+    @overload
+    @staticmethod
+    def addCommandCallback(
+        function: Callable[[str, _T], ...], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addCommandCallback(function: Callable[[str, None], ...]) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addCommandOutputCallback(
+        function: Callable[[str, MessageType, _T], ...], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addCommandOutputCallback(
+        function: Callable[[str, MessageType, None], ...],
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addCommandOutputFilterCallback(
+        function: Callable[[str, MessageType, _T], ...], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addCommandOutputFilterCallback(
+        function: Callable[[str, MessageType, None], ...],
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addProcCallback(
+        function: Callable[[str, int, bool, ProcType, _T], ...], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addProcCallback(
+        function: Callable[[str, int, bool, ProcType, None], ...],
+    ) -> MCallbackId: ...
 
 class MDagPath:
     @overload
