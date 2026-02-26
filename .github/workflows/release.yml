@@ -10,38 +10,71 @@ on:
 jobs:
   # Build package on every commit on main.
   build:
-    name: Build package
+    name: Build & verify package
     runs-on: ubuntu-latest
+    permissions:
+      attestations: write
+      id-token: write
     outputs:
-      version: ${{ steps.build.outputs.version }}
+      package-version: ${{ steps.baipp.outputs.package_version }}
+      package-name: ${{ steps.baipp.outputs.package_name }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - uses: astral-sh/setup-uv@v5
-      - uses: actions/setup-python@v5
+      - uses: hynek/build-and-inspect-python-package@v2
+        id: baipp
         with:
-          python-version-file: "pyproject.toml"
-      - name: Build package
-        id: build
-        run: |
-          uv build --no-sources
-          uvx check-wheel-contents dist/*.whl
-          echo "version=$(@uvx --from setuptools-scm python -m setuptools_scm)" | tee -a $GITHUB_OUTPUT
-      - name: Print package contents summary
-        run: |
-          echo -e '<details open><summary>sdist contents</summary>\n' >> $GITHUB_STEP_SUMMARY
-          tar -tf dist/*.tar.gz | tree -a --fromfile . | sed 's/^/    /' | tee -a $GITHUB_STEP_SUMMARY
-          echo -e '</details>\n' >> $GITHUB_STEP_SUMMARY
-          echo -e '<details open><summary>wheel contents</summary>\n' >> $GITHUB_STEP_SUMMARY
-          unzip -Z1 dist/*.whl | tree -a --fromfile . | sed 's/^/    /' | tee -a $GITHUB_STEP_SUMMARY
-          echo -e '</details>\n' >> $GITHUB_STEP_SUMMARY
-      - uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: ./dist
+          attest-build-provenance-github: "true"
 
-  # Draft a new release on tagged commit on main.
+  # Publish to pypi.org on tagged commit on main.
+  publish-pypi:
+    name: Publish to pypi.org
+    runs-on: ubuntu-latest
+    needs: [build]
+    environment:
+      name: publish-pypi
+      url: https://pypi.org/project/${{ needs.build.outputs.package-name }}/${{ needs.build.outputs.package-version }}
+    if: |
+      github.repository_owner == 'tahv'
+      && github.event_name == 'push'
+      && startsWith(github.ref, 'refs/tags')
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: Packages
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          attestations: true
+
+  # Upload to test.pypi.org on every commit on main.
+  publish-test-pypi:
+    name: Publish to test.pypi.org
+    runs-on: ubuntu-latest
+    needs: [build]
+    environment:
+      name: publish-test-pypi
+      url: https://test.pypi.org/project/${{ needs.build.outputs.package-name }}/${{ needs.build.outputs.package-version }}
+    if: |
+      github.repository_owner == 'tahv'
+      && github.event_name == 'push'
+      && github.ref == 'refs/heads/main'
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: Packages
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          attestations: true
+          repository-url: https://test.pypi.org/legacy/
+
+  # Draft a new release on tagged commits on main.
   draft-release:
     name: Draft release
     runs-on: ubuntu-latest
@@ -50,52 +83,17 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/download-artifact@v4
-      - name: Draft a new release
-        run: gh release create --draft --repo ${{ github.repository }} ${{ github.ref_name }} dist/*
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-  # Publish to PyPI on tagged commit on main.
-  publish-pypi:
-    name: Publish to PyPI
-    runs-on: ubuntu-latest
-    if: |
-      github.repository_owner == 'tahv'
-      && github.event_name == 'push'
-      && startsWith(github.ref, 'refs/tags')
-    needs: [build]
-    environment:
-      name: publish-pypi
-      url: https://pypi.org/project/types-maya/${{ needs.build.outputs.version }}
-    permissions:
-      id-token: write
-    steps:
-      - uses: actions/download-artifact@v4
-      - name: Upload package to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        # https://github.com/pypa/gh-action-pypi-publish/issues/283
-        # https://github.com/pypa/gh-action-pypi-publish?tab=readme-ov-file#generating-and-uploading-attestations
+      - uses: actions/checkout@v5
         with:
-          attestations: false
-
-  # Publish to Test PyPI on commit on main.
-  publish-test-pypi:
-    name: Publish to Test PyPI
-    runs-on: ubuntu-latest
-    if: |
-      github.repository_owner == 'tahv'
-      && github.event_name == 'push'
-      && github.ref == 'refs/heads/main'
-    needs: [build]
-    environment:
-      name: publish-test-pypi
-      url: https://test.pypi.org/project/types-maya/${{ needs.build.outputs.version }}
-    permissions:
-      id-token: write
-    steps:
-      - uses: actions/download-artifact@v4
-      - name: Upload package to Test PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+          fetch-depth: 0
+      - uses: actions/download-artifact@v5
         with:
-          repository-url: https://test.pypi.org/legacy/
+          name: Packages
+          path: dist
+      - uses: astral-sh/setup-uv@v7
+      - run: uvx hed --tag "${{ github.ref_name }}" > RELEASE_NOTES.md
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          body_path: "RELEASE_NOTES.md"
+          files: "dist/*"
