@@ -1,8 +1,8 @@
-import typing
+from typing import Any, Callable
 
-def eval(string: str, /) -> typing.Any: ...
+def eval(string: str, /) -> Any: ...
 def createMelWrapper(
-    fn: typing.Callable,
+    fn: Callable[..., Any],
     types: list[str] = [],
     retType: str = "void",
     ignoreDefaultArgs: bool = True,

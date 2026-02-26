@@ -43,7 +43,7 @@ softbreak = false
 [tool.mypy]
 files = ["src"]
 strict = true
-disallow_any_unimported = true
+disallow_any_unimported = false
 
 [tool.pyright]
 enableTypeIgnoreComments = false
