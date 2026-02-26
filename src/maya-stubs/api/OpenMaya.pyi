@@ -2,7 +2,6 @@ from typing import (
     Any,
     Callable,
     ClassVar,
-    Generic,
     Iterable,
     Literal,
     Sequence,
@@ -588,7 +587,7 @@ class MCallbackIdArray:
     @sizeIncrement.setter
     def sizeIncrement(self, value: int) -> None: ...
 
-class MCameraMessage(MMessage, Generic[_T]):
+class MCameraMessage(MMessage):
     @overload
     @staticmethod
     def addBeginManipulationCallback(
@@ -712,7 +711,7 @@ class MColorArray:
     @sizeIncrement.setter
     def sizeIncrement(self, value: int) -> None: ...
 
-class MCommandMessage(MMessage, Generic[_T]):
+class MCommandMessage(MMessage):
     ProcType: TypeAlias = Literal[0, 1]
     kMELProc: Literal[0]
     kMELCommand: Literal[1]
