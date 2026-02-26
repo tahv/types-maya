@@ -21,19 +21,16 @@ pip install types-maya
 
 ## Available stubs
 
-The stubs are maintained manually.
-This means they will likely remain incomplete for some time.
-
-I update the stubs based on the needs of my projects
-and i mostly focus on Maya Python API 2.0 (`maya.api`).
+The stubs are maintained manually and will likely remain incomplete for a long time.
+I update the stubs based on my needs and mostly use Maya Python API 2.0 (`maya.api`).
 
 | Import name               | Status               |
 |---------------------------|----------------------|
-| `maya.api.OpenMaya`       | 🟠 Incomplete (~40%) |
+| `maya.api.OpenMaya`       | 🟠 Incomplete (~41%) |
 | `maya.api.OpenMayaAnim`   | 🔴 Not Covered       |
 | `maya.api.OpenMayaRender` | 🔴 Not Covered       |
 | `maya.api.OpenMayaUI`     | 🔴 Not Covered       |
-| `maya.cmds`               | 🔴 Not Covered       |
+| `maya.cmds`               | 🟠 Unannotated       |
 | `maya.mel`                | 🟢 Complete          |
 | `maya.standalone`         | 🟢 Complete          |
 | `maya.OpenMaya`           | 🔴 Not Covered       |
