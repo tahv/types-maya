@@ -34,7 +34,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.hed]
 changelog = "CHANGELOG.md"
-title = "{tag}"
+title = "Release Notes"
 diff-url = "https://github.com/tahv/types-maya/compare/{prev}...{tag}"
 capture-start = '^## \[{tag}\]'
 capture-end = "^## "
