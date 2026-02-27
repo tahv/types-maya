@@ -1,5 +1,6 @@
-[private]
-default:
+# List available recipes
+[default]
+list:
     @just --list
 
 # Sync development requirements
@@ -14,9 +15,9 @@ nvim *args:
 ruff *files:
     uvx ruff check --output-format concise {{ files }}
 
-# Run ty
-ty *files:
-    uvx ty check --output-format concise {{ files }}
+# Extract & output `version` changes from `CHANGELOG.md`
+hed version:
+    uvx hed --tag {{ version }}
 
 # Dry run formatter and output the diffs
 fmt:
@@ -29,6 +30,10 @@ mypy:
 # Perform type-checking with `pyright`
 pyright:
     uv run -m pyright
+
+# Perform type-checking with `ty`
+ty:
+    uvx ty check --output-format concise
 
 build:
     uv build
@@ -50,4 +55,3 @@ docker-build:
 # Run an interactive docker container
 interactive: docker-build
     docker run -it --rm {{ image-name }}
-
