@@ -57,32 +57,17 @@ lint.flake8-tidy-imports.ban-relative-imports = "all"
 lint.pydocstyle.convention = "google"
 lint.isort.required-imports = ["from __future__ import annotations"]
 lint.ignore = [
+  "A001",  # Variable is shadowing a Python builtin
   "A002",  # Function argument is shadowing a Python builtin
+  "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
   "COM812",  # Missing trailing comma
-  "D100",  # Missing docstring in public module
-  "D103",  # Missing docstring in public function
-  "D104",  # Missing docstring in public package
-  "D105",  # Missing docstring in magic method
-  "D107",  # Missing docstring in `__init__`
   "FIX002",  # Line contains TODO, consider resolving the issue
   "N802",  # Function name should be lowercase
   "N803",  # Argument name should be lowercase
   "N815",  # Variable in class scope should not be mixedCase
-  "PD",  # panda-vet linter
   "PYI011",  # Only simple default values allowed for typed arguments
-  "SIM300",  # Yoda condition detected
   "TD002",  # Missing author in TODO
   "TD003",  # Missing issue link on the line following this TODO
-]
-
-[tool.ruff.lint.per-file-ignores]
-"src/maya-stubs/cmds.pyi" = [
-  "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
-  "A001",  # Variable is shadowing a Python builtin
-]
-"src/maya-stubs/mel.pyi" = [
-  "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
-  "A001",  # Variable is shadowing a Python builtin
 ]
 
 [tool.setuptools_scm]
