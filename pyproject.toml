@@ -89,7 +89,7 @@ lint.ignore = [
 local_scheme = "no-local-version"
 
 [tool.ty]
-environment.python-version = "3.10"
+environment.python-version = "3.8"
 analysis.respect-type-ignore-comments = false
 
 [tool.typos.default.extend-identifiers]
