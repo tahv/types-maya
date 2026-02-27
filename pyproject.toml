@@ -92,6 +92,11 @@ local_scheme = "no-local-version"
 environment.python-version = "3.10"
 analysis.respect-type-ignore-comments = false
 
+[tool.typos.default.extend-identifiers]
+kLodGroup = "kLodGroup"
+kLodThresholds = "kLodThresholds"
+hed = "hed"
+
 [tool.uv]
 required-version = ">=0.5.8"
 default-groups = ["dev"]

@@ -35,6 +35,10 @@ pyright:
 ty:
     uvx ty check --output-format concise
 
+# Check for typos
+typos:
+    uvx typos --format brief
+
 build:
     uv build
 
