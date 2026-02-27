@@ -39,6 +39,7 @@ ty:
 typos:
     uvx typos --format brief
 
+# Build package
 build:
     uv build
 
