@@ -78,9 +78,11 @@ environment.python-version = "3.8"
 analysis.respect-type-ignore-comments = false
 
 [tool.typos.default.extend-identifiers]
-kLodGroup = "kLodGroup"
-kLodThresholds = "kLodThresholds"
 hed = "hed"
+
+[tool.typos.default.extend-words]
+lod = "lod"
+LOD = "LOD"
 
 [tool.uv]
 required-version = ">=0.5.8"
