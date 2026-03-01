@@ -178,7 +178,6 @@ __all__ = [
     "MWeight",
 ]
 
-MDAGDrawOverrideInfo: Incomplete
 MDagMessage: Incomplete
 MDataBlock: Incomplete
 MDataHandle: Incomplete
@@ -794,6 +793,43 @@ class MContainerMessage(MMessage):
     def addPublishAttrCallback(
         function: Callable[[MObject, str, None], Any], /
     ) -> MCallbackId: ...
+
+class MDAGDrawOverrideInfo:
+    DrawOverrideDisplayType: TypeAlias = Literal[0, 1, 2]
+    kDisplayTypeNormal: Literal[0]
+    kDisplayTypeReference: Literal[1]
+    kDisplayTypeTemplate: Literal[2]
+    DrawOverrideLOD: TypeAlias = Literal[0, 1]
+    kLODBoundingBox: Literal[1]
+    kLODFull: Literal[0]
+    @property
+    def displayType(self) -> DrawOverrideDisplayType: ...
+    @displayType.setter
+    def displayType(self, value: DrawOverrideDisplayType) -> None: ...
+    @property
+    def enableShading(self) -> bool: ...
+    @enableShading.setter
+    def enableShading(self, value: bool) -> None: ...
+    @property
+    def enableTexturing(self) -> bool: ...
+    @enableTexturing.setter
+    def enableTexturing(self, value: bool) -> None: ...
+    @property
+    def enableVisible(self) -> bool: ...
+    @enableVisible.setter
+    def enableVisible(self, value: bool) -> None: ...
+    @property
+    def lod(self) -> DrawOverrideLOD: ...
+    @lod.setter
+    def lod(self, value: DrawOverrideLOD) -> None: ...
+    @property
+    def overrideEnabled(self) -> bool: ...
+    @overrideEnabled.setter
+    def overrideEnabled(self, value: bool) -> None: ...
+    @property
+    def playbackVisible(self) -> bool: ...
+    @playbackVisible.setter
+    def playbackVisible(self, value: bool) -> None: ...
 
 class MDagPath:
     @overload
