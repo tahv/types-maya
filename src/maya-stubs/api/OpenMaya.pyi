@@ -178,7 +178,6 @@ __all__ = [
     "MWeight",
 ]
 
-MConditionMessage: Incomplete
 MContainerMessage: Incomplete
 MDAGDrawOverrideInfo: Incomplete
 MDagMessage: Incomplete
@@ -758,6 +757,22 @@ class MCommandMessage(MMessage):
     def addProcCallback(
         function: Callable[[str, int, bool, ProcType, None], Any],
     ) -> MCallbackId: ...
+
+class MConditionMessage(MMessage):
+    @overload
+    @staticmethod
+    def addConditionCallback(
+        conditionName: str, function: Callable[[bool, _T], Any], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addConditionCallback(
+        conditionName: str, function: Callable[[bool, None], Any], /
+    ) -> MCallbackId: ...
+    @staticmethod
+    def getConditionNames() -> tuple[str, ...]: ...
+    @staticmethod
+    def getConditionState(name: str, /) -> bool: ...
 
 class MDagPath:
     @overload

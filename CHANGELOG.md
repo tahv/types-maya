@@ -5,6 +5,8 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ## Unreleased
 
+- Add `maya.api.OpenMaya.MConditionMessage`
+
 ## [0.3.0](https://github.com/tahv/types-maya/releases/tag/0.3.0) - 2026-02-27
 
 - Add `maya.api.OpenMaya.MMessage`.
