@@ -178,7 +178,6 @@ __all__ = [
     "MWeight",
 ]
 
-MDagMessage: Incomplete
 MDataBlock: Incomplete
 MDataHandle: Incomplete
 MDGMessage: Incomplete
@@ -835,6 +834,332 @@ class MDAGDrawOverrideInfo:
     def playbackVisible(self) -> bool: ...
     @playbackVisible.setter
     def playbackVisible(self, value: bool) -> None: ...
+
+class MDagMessage(MMessage):
+    DagMessage: TypeAlias = Literal[-1, 0, 1, 2, 3, 4, 5, 6, 7]
+    kInvalidMsg: Literal[-1]
+    kParentAdded: Literal[0]
+    kParentRemoved: Literal[1]
+    kChildAdded: Literal[2]
+    kChildRemoved: Literal[3]
+    kChildReordered: Literal[4]
+    kInstanceAdded: Literal[5]
+    kInstanceRemoved: Literal[6]
+    kLast: Literal[7]
+    MatrixModifiedFlags: TypeAlias = Literal[
+        1, 2, 4,
+        8, 16, 32,
+        64, 128, 256,
+        512, 1024, 2048,
+        4096, 8192, 16384,
+        32768, 65536, 131072,
+        262144, 524288, 1048576,
+        2097152, 4194304, 8388608,
+        16777216, 33554432, 67108864,
+        134217728, 268435455,
+        7, 56, 448, 3584, 28672, 229376, 1835008, 14680064, 117440512,
+    ]  # fmt: off
+    kScaleX: Literal[1]
+    kScaleY: Literal[2]
+    kScaleZ: Literal[4]
+    kShearXY: Literal[8]
+    kShearXZ: Literal[16]
+    kShearYZ: Literal[32]
+    kRotateX: Literal[64]
+    kRotateY: Literal[128]
+    kRotateZ: Literal[256]
+    kTranslateX: Literal[512]
+    kTranslateY: Literal[1024]
+    kTranslateZ: Literal[2048]
+    kScalePivotX: Literal[4096]
+    kScalePivotY: Literal[8192]
+    kScalePivotZ: Literal[16384]
+    kRotatePivotX: Literal[32768]
+    kRotatePivotY: Literal[65536]
+    kRotatePivotZ: Literal[131072]
+    kScaleTransX: Literal[262144]
+    kScaleTransY: Literal[524288]
+    kScaleTransZ: Literal[1048576]
+    kRotateTransX: Literal[2097152]
+    kRotateTransY: Literal[4194304]
+    kRotateTransZ: Literal[8388608]
+    kRotateOrientX: Literal[16777216]
+    kRotateOrientY: Literal[33554432]
+    kRotateOrientZ: Literal[67108864]
+    kRotateOrder: Literal[134217728]
+    kAll: Literal[268435455]
+    kScale: Literal[7]
+    kShear: Literal[56]
+    kRotation: Literal[448]
+    kTranslation: Literal[3584]
+    kScalePivot: Literal[28672]
+    kRotatePivot: Literal[229376]
+    kScalePivotTrans: Literal[1835008]
+    kRotatePivotTrans: Literal[14680064]
+    kRotateOrient: Literal[117440512]
+    @overload
+    @staticmethod
+    def addAllDagChangesCallback(
+        function: Callable[[MDagMessage, MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addAllDagChangesCallback(
+        function: Callable[[MDagMessage, MDagPath, MDagPath, None], Any],
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addAllDagChangesDagPathCallback(
+        node: MDagPath,
+        function: Callable[[MDagMessage, MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addAllDagChangesDagPathCallback(
+        node: MDagPath,
+        function: Callable[[MDagMessage, MDagPath, MDagPath, None], Any],
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildAddedCallback(
+        function: Callable[[MDagPath, MDagPath, _T], Any], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildAddedCallback(
+        function: Callable[[MDagPath, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildAddedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildAddedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[MDagPath, MDagPath, None], Any],
+        /,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildRemovedCallback(
+        function: Callable[[MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildRemovedCallback(
+        function: Callable[[MDagPath, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildRemovedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildRemovedDagPathCallback(
+        node: MDagPath, function: Callable[[MDagPath, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildReorderedCallback(
+        function: Callable[[MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildReorderedCallback(
+        function: Callable[[MDagPath, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildReorderedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addChildReorderedDagPathCallback(
+        node: MDagPath, function: Callable[[MDagPath, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDagCallback(
+        msgType: DagMessage,
+        function: Callable[[DagMessage, MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDagCallback(
+        msgType: DagMessage,
+        function: Callable[[DagMessage, MDagPath, MDagPath, None], Any],
+        /,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDagDagPathCallback(
+        node: MDagPath,
+        msgType: DagMessage,
+        function: Callable[[DagMessage, MDagPath, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDagDagPathCallback(
+        node: MDagPath,
+        msgType: DagMessage,
+        function: Callable[[DagMessage, MDagPath, MDagPath, None], Any],
+        /,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceAddedCallback(
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceAddedCallback(
+        function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceAddedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceAddedDagPathCallback(
+        node: MDagPath, function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceRemovedCallback(
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceRemovedCallback(
+        function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceRemovedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addInstanceRemovedDagPathCallback(
+        node: MDagPath, function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addMatrixModifiedCallback(
+        affectedNode: MDagPath,
+        function: Callable[[MObject, MatrixModifiedFlags, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addMatrixModifiedCallback(
+        affectedNode: MDagPath,
+        function: Callable[[MObject, MatrixModifiedFlags, None], Any],
+        /,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentAddedCallback(
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentAddedCallback(
+        function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentAddedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentAddedDagPathCallback(
+        node: MDagPath, function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentRemovedCallback(
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentRemovedCallback(
+        function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentRemovedDagPathCallback(
+        node: MDagPath,
+        function: Callable[[DagMessage, MDagPath, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addParentRemovedDagPathCallback(
+        node: MDagPath, function: Callable[[DagMessage, MDagPath, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addWorldMatrixModifiedCallback(
+        affectedNode: MDagPath,
+        function: Callable[[MObject, MatrixModifiedFlags, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addWorldMatrixModifiedCallback(
+        affectedNode: MDagPath,
+        function: Callable[[MObject, MatrixModifiedFlags, None], Any],
+        /,
+    ) -> MCallbackId: ...
 
 class MDGContext:
     kNormal: MDGContext
