@@ -178,7 +178,6 @@ __all__ = [
     "MWeight",
 ]
 
-MDGMessage: Incomplete
 MEulerRotation: Incomplete
 MEvaluationNode: Incomplete
 MEvaluationNodeIterator: Incomplete
@@ -849,6 +848,105 @@ class MDGContext:
     def isCurrent(self) -> bool: ...
     def isNormal(self) -> bool: ...
     def makeCurrent(self) -> Self: ...
+
+class MDGMessage(MMessage):
+    @overload
+    @staticmethod
+    def addConnectionCallback(
+        function: Callable[[MPlug, MPlug, bool, _T], Any],
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addConnectionCallback(
+        function: Callable[[MPlug, MPlug, bool, None], Any],
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDelayedTimeChangeCallback(
+        function: Callable[[MTime, _T], Any], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDelayedTimeChangeCallback(
+        function: Callable[[MTime, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDelayedTimeChangeRunupCallback(
+        function: Callable[[MTime, _T], Any], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addDelayedTimeChangeRunupCallback(
+        function: Callable[[MTime, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addForceUpdateCallback(
+        function: Callable[[MTime, _T], Any], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addForceUpdateCallback(
+        function: Callable[[MTime, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addNodeAddedCallback(
+        function: Callable[[MObject, _T], Any], nodeType: str, /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addNodeAddedCallback(
+        function: Callable[[MObject, None], Any], nodeType: str, /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addNodeChangeUuidCheckCallback(
+        function: Callable[[bool, MObject, MUuid, _T], MMessage.Action],
+        nodeType: str,
+        /,
+        clientData: _T,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addNodeChangeUuidCheckCallback(
+        function: Callable[[bool, MObject, MUuid, None], MMessage.Action],
+        nodeType: str,
+        /,
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addNodeRemovedCallback(
+        function: Callable[[MObject, _T], Any], nodeType: str, /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addNodeRemovedCallback(
+        function: Callable[[MObject, None], Any], nodeType: str, /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addPreConnectionCallback(
+        function: Callable[[MPlug, MPlug, bool, _T], Any], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addPreConnectionCallback(
+        function: Callable[[MPlug, MPlug, bool, None], Any], /
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addTimeChangeCallback(
+        function: Callable[[MTime, _T], Any], /, clientData: _T
+    ) -> MCallbackId: ...
+    @overload
+    @staticmethod
+    def addTimeChangeCallback(
+        function: Callable[[MTime, None], Any], /
+    ) -> MCallbackId: ...
 
 class MDagMessage(MMessage):
     DagMessage: TypeAlias = Literal[-1, 0, 1, 2, 3, 4, 5, 6, 7]

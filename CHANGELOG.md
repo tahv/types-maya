@@ -11,6 +11,7 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Add `maya.api.OpenMaya.MDagMessage`
 - Add `maya.api.OpenMaya.MDataBlock`
 - Add `maya.api.OpenMaya.MDataHandle`
+- Add `maya.api.OpenMaya.MDGMessage`
 
 ## [0.3.0](https://github.com/tahv/types-maya/releases/tag/0.3.0) - 2026-02-27
 
