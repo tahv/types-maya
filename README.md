@@ -26,9 +26,9 @@ I update the stubs based on my needs and mostly use Maya Python API 2.0 (`maya.a
 
 | Import name               | Status               |
 |---------------------------|----------------------|
-| `maya.api.OpenMaya`       | 🟠 Incomplete (~41%) |
+| `maya.api.OpenMaya`       | 🟠 Incomplete (~43%) |
 | `maya.api.OpenMayaAnim`   | 🟠 Unannotated       |
-| `maya.api.OpenMayaRender` | 🟠 Unannotated       |
+| `maya.api.OpenMayaRender` | 🟠 Incomplete (~10%) |
 | `maya.api.OpenMayaUI`     | 🟠 Unannotated       |
 | `maya.cmds`               | 🟠 Unannotated       |
 | `maya.mel`                | 🟢 Complete          |

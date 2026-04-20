@@ -12,6 +12,14 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Add `maya.api.OpenMaya.MDataBlock`
 - Add `maya.api.OpenMaya.MDataHandle`
 - Add `maya.api.OpenMaya.MDGMessage`
+- Add `maya.api.OpenMayaRender.MClearOperation`
+- Add `maya.api.OpenMayaRender.MPresentTarget`
+- Add `maya.api.OpenMayaRender.MRenderer`
+- Add `maya.api.OpenMayaRender.MRenderOperation`
+- Add `maya.api.OpenMayaRender.MRenderOverride`
+- Add `maya.api.OpenMayaRender.MSceneRender`
+- Add `maya.api.OpenMayaRender.MFrameContext`
+- Add `maya.api.OpenMayaRender.MUIDrawManager`
 
 ## [0.3.0](https://github.com/tahv/types-maya/releases/tag/0.3.0) - 2026-02-27
 
