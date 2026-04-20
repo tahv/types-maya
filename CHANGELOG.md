@@ -20,6 +20,8 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Add `maya.api.OpenMayaRender.MSceneRender`
 - Add `maya.api.OpenMayaRender.MFrameContext`
 - Add `maya.api.OpenMayaRender.MUIDrawManager`
+- Add `maya.api.OpenMayaRender.MBlendState`
+- Add `maya.api.OpenMayaRender.MSamplerState`
 
 ## [0.3.0](https://github.com/tahv/types-maya/releases/tag/0.3.0) - 2026-02-27
 

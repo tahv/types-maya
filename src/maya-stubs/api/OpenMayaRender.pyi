@@ -110,7 +110,6 @@ __all__ = [
 
 MAttributeParameterMapping: Incomplete
 MAttributeParameterMappingList: Incomplete
-MBlendState: Incomplete
 MBlendStateDesc: Incomplete
 MCameraOverride: Incomplete
 MColorManagementUtilities: Incomplete
@@ -160,7 +159,6 @@ MRenderTargetAssignment: Incomplete
 MRenderTargetDescription: Incomplete
 MRenderTargetManager: Incomplete
 MRenderUtilities: Incomplete
-MSamplerState: Incomplete
 MSamplerStateDesc: Incomplete
 MSelectionContext: Incomplete
 MSelectionInfo: Incomplete
@@ -187,6 +185,41 @@ MVertexBuffer: Incomplete
 MVertexBufferArray: Incomplete
 MVertexBufferDescriptor: Incomplete
 MVertexBufferDescriptorList: Incomplete
+
+class MBlendState:
+    kMaxTargets: Literal[8]
+    BlendOperation: TypeAlias = Literal[1, 2, 3, 4, 5]
+    kAdd: Literal[1]
+    kSubtract: Literal[2]
+    kReverseSubtract: Literal[3]
+    kMin: Literal[4]
+    kMax: Literal[5]
+    ChannelMask: TypeAlias = Literal[1, 2, 4, 7, 8, 15]
+    kNoChannels: Literal[0]
+    kRedChannel: Literal[1]
+    kGreenChannel: Literal[2]
+    kBlueChannel: Literal[4]
+    kRGBChannels: Literal[7]
+    kAlphaChannel: Literal[8]
+    kRGBAChannels: Literal[15]
+    BlendOption: TypeAlias = Literal[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    kZero: Literal[1]
+    kOne: Literal[2]
+    kSourceColor: Literal[3]
+    kInvSourceColor: Literal[4]
+    kSourceAlpha: Literal[5]
+    kInvSourceAlpha: Literal[6]
+    kDestinationAlpha: Literal[7]
+    kInvDestinationAlpha: Literal[8]
+    kDestinationColor: Literal[9]
+    kInvDestinationColor: Literal[10]
+    kSourceAlphaSat: Literal[11]
+    kBothSourceAlpha: Literal[12]
+    kBothInvSourceAlpha: Literal[13]
+    kBlendFactor: Literal[14]
+    kInvBlendFactor: Literal[15]
+    def desc(self) -> MBlendStateDesc: ...
+    def resourceHandle(self) -> int: ...
 
 class MClearOperation(MRenderOperation):
     ClearMask: TypeAlias = Literal[0, 1, 2, 3, 4, -1]
@@ -603,6 +636,25 @@ class MRenderOverride:
     def supportedDrawAPIs(self) -> MRenderer.DrawAPI: ...
     def uiName(self) -> str: ...
 
+class MSamplerState:
+    TextureFilter: TypeAlias = Literal[0, 1, 4, 5, 16, 17, 20, 21, 85]
+    kMinMagMipPoint: Literal[0]
+    kMinMagPoint_MipLinear: Literal[1]
+    kMinPoint_MagLinear_MipPoint: Literal[4]
+    kMinPoint_MagMipLinear: Literal[5]
+    kMinLinear_MagMipPoint: Literal[16]
+    kMinLinear_MagPoint_MipLinear: Literal[17]
+    kMinMagLinear_MipPoint: Literal[20]
+    kMinMagMipLinear: Literal[21]
+    kAnisotropic: Literal[85]
+    TextureAddress: TypeAlias = Literal[1, 2, 3, 4]
+    kTexWrap: Literal[1]
+    kTexMirror: Literal[2]
+    kTexClamp: Literal[3]
+    kTexBorder: Literal[4]
+    def desc(self) -> MSamplerStateDesc: ...
+    def resourceHandle(self) -> int: ...
+
 class MSceneRender(MRenderOperation):
     MObjectTypeExclusions: TypeAlias = Literal[
         1, 2, 4,
@@ -981,17 +1033,24 @@ class MUIDrawManager:
     def setTexture(self, texture: MTexture, /) -> Self: ...
     def setTextureMask(
         self,
-        mask: Literal[
-            MBlendState.kRGBAChannels,
-            MBlendState.kRGBChannels,
-            MBlendState.kAlphaChannel,
+        mask: Annotated[
+            MBlendState.ChannelMask,
+            MBlendState.kRGBAChannels
+            | MBlendState.kRGBChannels
+            | MBlendState.kAlphaChannel,
         ],
         /,
     ) -> Self: ...
     def setTextureSampler(
         self,
-        filter: Literal[MSamplerState.kMinMagMipPoint, MSamplerState.kMinMagMipLinear],
-        address: Literal[MSamplerState.kTexWrap, MSamplerState.kTexClamp],
+        filter: Annotated[
+            MSamplerState.TextureFilter,
+            MSamplerState.kMinMagMipPoint | MSamplerState.kMinMagMipLinear,
+        ],
+        address: Annotated[
+            MSamplerState.TextureAddress,
+            MSamplerState.kTexWrap | MSamplerState.kTexClamp,
+        ],
     ) -> Self: ...
     @overload
     def sphere(
