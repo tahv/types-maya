@@ -1,3 +1,4 @@
+# ruff: noqa: PYI054
 from typing import Annotated, Literal, Sequence
 
 from _typeshed import Incomplete
@@ -392,7 +393,7 @@ class MFrameContext:
         self,
     ) -> Annotated[
         tuple[bool, bool, bool, bool, MColor, MColor, float, int],
-        "[displayGradient, clearColorFlag, clearDepthFlag, clearStencilFlag, clearColor1, clearColor2, clearDepthValue, clearStencilValue]",
+        "[displayGradient, clearColorFlag, clearDepthFlag, clearStencilFlag, clearColor1, clearColor2, clearDepthValue, clearStencilValue]",  # noqa: E501
     ]: ...
     def getCurrentCameraPath(self) -> MDagPath: ...
     def getCurrentColorRenderTarget(self) -> MRenderTarget: ...
