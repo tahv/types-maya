@@ -5,6 +5,7 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ## Unreleased
 
+- Generate `maya.cmds` stubs with [cmdsgen](https://gitlab.com/tahv/cmdsgen)
 - Add `maya.api.OpenMaya.MConditionMessage`
 - Add `maya.api.OpenMaya.MContainerMessage`
 - Add `maya.api.OpenMaya.MDAGDrawOverrideInfo`

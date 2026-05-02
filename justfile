@@ -59,3 +59,7 @@ interactive tag="types-maya:dev":
 # Generate '.github/README.md'
 github-readme:
     uv run scripts/github-readme.py > .github/README.md
+
+# Generate 'src/maya-stubs/cmds.pyi'
+cmdsgen:
+    uvx --from git+https://gitlab.com/tahv/cmdsgen@main cmdsgen -vv --year 2025 > "./src/maya-stubs/cmds.pyi"
