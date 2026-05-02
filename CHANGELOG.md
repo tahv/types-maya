@@ -5,6 +5,8 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ## Unreleased
 
+## [0.4.0](https://gitlab.com/tahv/types-maya/-/releases/0.4.0) - 2026-05-2
+
 - Generate `maya.cmds` stubs with [cmdsgen](https://gitlab.com/tahv/cmdsgen)
 - Add `maya.api.OpenMaya.MConditionMessage`
 - Add `maya.api.OpenMaya.MContainerMessage`
