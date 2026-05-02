@@ -5,7 +5,7 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ## Unreleased
 
-- Generate `maya.cmds` stubs with [cmdsgen](https://gitlab.com/tahv/cmdsgen)
+- renerate `maya.cmds` stubs with [cmdsgen](https://gitlab.com/tahv/cmdsgen)
 - Add `maya.api.OpenMaya.MConditionMessage`
 - Add `maya.api.OpenMaya.MContainerMessage`
 - Add `maya.api.OpenMaya.MDAGDrawOverrideInfo`
@@ -24,7 +24,7 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Add `maya.api.OpenMayaRender.MBlendState`
 - Add `maya.api.OpenMayaRender.MSamplerState`
 
-## [0.3.0](https://github.com/tahv/types-maya/releases/tag/0.3.0) - 2026-02-27
+## [0.3.0](https://gitlab.com/tahv/types-maya/-/releases/0.3.0) - 2026-02-27
 
 - Add `maya.api.OpenMaya.MMessage`.
 - Add `maya.api.OpenMaya.MCallbackId`.
@@ -45,7 +45,7 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Add `Incomplete` to all missing `maya.api` classes.
 - Add `Annotated` metadata to some properties.
 
-## [0.2.0](https://github.com/tahv/types-maya/releases/tag/0.2.0) - 2025-09-26
+## [0.2.0](https://gitlab.com/tahv/types-maya/-/releases/0.2.0) - 2025-09-26
 
 - Supports Python >= 3.7
 - Conform to [PEP 639](https://peps.python.org/pep-0639/)
@@ -53,11 +53,11 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 - Add `MQuaternion`, `MVector`, `MColor`, `MArgParser`, `MArgDatabase`, `MArgList`,
   `MDagPath`, `MFnDagNode` and `MSelectionList`.
 
-## [0.1.1](https://github.com/tahv/types-maya/releases/tag/0.1.1) - 2025-02-25
+## [0.1.1](https://gitlab.com/tahv/types-maya/-/releases/0.1.1) - 2025-02-25
 
 - Add `maya.api.OpenMaya.MDagModifier`.
 - Add incomplete `maya.OpenMaya*` modules.
 
-## [0.1.0](https://github.com/tahv/types-maya/releases/tag/0.1.0) - 2025-02-23
+## [0.1.0](https://gitlab.com/tahv/types-maya/-/releases/0.1.0) - 2025-02-23
 
 - Initial release.
