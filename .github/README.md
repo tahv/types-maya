@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> Development takes place on GitLab:
+> [gitlab.com/tahv/types-maya](https://gitlab.com/tahv/types-maya).
+
 # types-maya
 
 [![Source](https://img.shields.io/badge/source-%23fc6d25?logo=gitlab&logoColor=white)](https://gitlab.com/tahv/menuet)
@@ -38,9 +42,9 @@ pip install types-maya
 
 | Import name               | Status               |
 |---------------------------|----------------------|
-| `maya.api.OpenMaya`       | 🟠 Incomplete (~45%) |
+| `maya.api.OpenMaya`       | 🟠 Incomplete (~43%) |
 | `maya.api.OpenMayaAnim`   | 🟠 Unannotated       |
-| `maya.api.OpenMayaRender` | 🟠 Incomplete (~12%) |
+| `maya.api.OpenMayaRender` | 🟠 Incomplete (~10%) |
 | `maya.api.OpenMayaUI`     | 🟠 Unannotated       |
 | `maya.cmds`               | 🟢 Complete          |
 | `maya.mel`                | 🟢 Complete          |

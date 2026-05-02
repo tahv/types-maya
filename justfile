@@ -51,12 +51,11 @@ completion file:
     INCOMPLETE=$(rg "^[^\s]+\: Incomplete$" --count {{ file }})
     echo "scale=2; 100 * $IMPLEMENTED / ($IMPLEMENTED + $INCOMPLETE)" | bc
 
-image-name := "maya-stubs"
-
-[private]
-docker-build:
-    docker build --platform linux/amd64 -t {{ image-name }} .
-
 # Run an interactive docker container
-interactive: docker-build
-    docker run -it --rm {{ image-name }}
+interactive tag="types-maya:dev":
+    docker build --platform linux/amd64 --tag {{ tag }} .
+    docker run -it --rm {{ tag }} mayapy -m pytest -vv
+
+# Generate '.github/README.md'
+github-readme:
+    uv run scripts/github-readme.py > .github/README.md
