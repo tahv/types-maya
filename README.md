@@ -93,6 +93,13 @@ Contributions of any kind are welcome.
 Please [open an issue](https://gitlab.com/tahv/types-maya/-/issues)
 or open a [merge request](https://gitlab.com/tahv/types-maya/-/merge_requests).
 
+## Alternatives
+
+- [maya-stubs](https://pypi.org/project/maya-stubs/)
+  ([source](https://github.com/Muream/maya-stubs))
+- [types-maya-strict](https://pypi.org/project/types-maya-strict/)
+  ([source](https://github.com/LumaPictures/cg-stubs/tree/master/maya))
+
 ---
 
 <a href="https://www.buymeacoffee.com/tgambier"><img alt="Buy Me a Coffee" style="height: 50px;" height="50" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"></a>
