@@ -5,6 +5,11 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ## Unreleased
 
+- feat(cmds): remove duplicate flags ([!2](https://gitlab.com/tahv/types-maya/-/merge_requests/2))
+- feat(cmds): multiuse flags should be list ([!2](https://gitlab.com/tahv/types-maya/-/merge_requests/2))
+- feat(cmds): add `@overload` only if commands have more than one definition ([!2](https://gitlab.com/tahv/types-maya/-/merge_requests/2))
+- feat(cmds): ignore `e` flag in editable commands ([!2](https://gitlab.com/tahv/types-maya/-/merge_requests/2))
+
 ## [0.4.0](https://gitlab.com/tahv/types-maya/-/releases/0.4.0) - 2026-05-2
 
 - Generate `maya.cmds` stubs with [cmdsgen](https://gitlab.com/tahv/cmdsgen)
