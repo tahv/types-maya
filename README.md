@@ -1,7 +1,7 @@
 # types-maya
 
-[![Source](https://img.shields.io/badge/source-%23fc6d25?logo=gitlab&logoColor=white)](https://gitlab.com/tahv/menuet)
-[![PyPI](https://img.shields.io/pypi/v/types-maya?logo=pypi&logoColor=white)](https://pypi.org/project/types-maya/)
+[![Source](https://img.shields.io/badge/source-%23fc6d25?logo=gitlab&logoColor=white)](https://gitlab.com/tahv/types-maya)
+[![PyPI](https://img.shields.io/pypi/v/types-maya?logo=python&logoColor=white)](https://pypi.org/project/types-maya)
 [![Typed](https://img.shields.io/pypi/types/types-maya?logo=python&logoColor=white)](https://pypi.org/project/types-maya/)
 
 External type annotations for Autodesk Maya Python API.
