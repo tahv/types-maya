@@ -4,8 +4,8 @@
 
 # types-maya
 
-[![Source](https://img.shields.io/badge/source-%23fc6d25?logo=gitlab&logoColor=white)](https://gitlab.com/tahv/menuet)
-[![PyPI](https://img.shields.io/pypi/v/types-maya?logo=pypi&logoColor=white)](https://pypi.org/project/types-maya/)
+[![Source](https://img.shields.io/badge/source-%23fc6d25?logo=gitlab&logoColor=white)](https://gitlab.com/tahv/types-maya)
+[![PyPI](https://img.shields.io/pypi/v/types-maya?logo=python&logoColor=white)](https://pypi.org/project/types-maya)
 [![Typed](https://img.shields.io/pypi/types/types-maya?logo=python&logoColor=white)](https://pypi.org/project/types-maya/)
 
 External type annotations for Autodesk Maya Python API.
@@ -42,9 +42,9 @@ pip install types-maya
 
 | Import name               | Status               |
 |---------------------------|----------------------|
-| `maya.api.OpenMaya`       | 🟠 Incomplete (~43%) |
+| `maya.api.OpenMaya`       | 🟠 Incomplete (~45%) |
 | `maya.api.OpenMayaAnim`   | 🟠 Unannotated       |
-| `maya.api.OpenMayaRender` | 🟠 Incomplete (~10%) |
+| `maya.api.OpenMayaRender` | 🟠 Incomplete (~12%) |
 | `maya.api.OpenMayaUI`     | 🟠 Unannotated       |
 | `maya.cmds`               | 🟢 Complete          |
 | `maya.mel`                | 🟢 Complete          |
@@ -96,3 +96,14 @@ Annotated[Literal[5], "deprecated"]
 Contributions of any kind are welcome.
 Please [open an issue](https://gitlab.com/tahv/types-maya/-/issues)
 or open a [merge request](https://gitlab.com/tahv/types-maya/-/merge_requests).
+
+## Alternatives
+
+- [maya-stubs](https://pypi.org/project/maya-stubs/)
+  ([source](https://github.com/Muream/maya-stubs))
+- [types-maya-strict](https://pypi.org/project/types-maya-strict/)
+  ([source](https://github.com/LumaPictures/cg-stubs/tree/master/maya))
+
+---
+
+<a href="https://www.buymeacoffee.com/tgambier"><img alt="Buy Me a Coffee" style="height: 50px;" height="50" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"></a>
