@@ -739,12 +739,12 @@ class MCommandMessage(MMessage):
     @overload
     @staticmethod
     def addCommandOutputFilterCallback(
-        function: Callable[[str, MessageType, _T], Any], /, clientData: _T
+        function: Callable[[str, MessageType, _T], bool], /, clientData: _T
     ) -> MCallbackId: ...
     @overload
     @staticmethod
     def addCommandOutputFilterCallback(
-        function: Callable[[str, MessageType, None], Any],
+        function: Callable[[str, MessageType, None], bool],
     ) -> MCallbackId: ...
     @overload
     @staticmethod
