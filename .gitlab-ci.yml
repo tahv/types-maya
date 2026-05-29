@@ -7,21 +7,8 @@ stages:
 
 # rules -----------------------------------------------------------------------
 
-.code-patterns: &code-patterns
-  - "src/**/*"
-  - ".gitlab-ci.yml"
-  - "conftest.py"
-  - "pyproject.toml"
-  - "uv.lock"
-
-.rule:code-merge-request-manual: &rule-code-merge-request-manual
+.rule:merge-request-manual: &rule-merge-request-manual
   if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-  changes: *code-patterns
-  when: manual
-
-.rule:code-default-branch-manual: &rule-code-default-branch-manual
-  if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  changes: *code-patterns
   when: manual
 
 .rule:default-branch-manual: &rule-default-branch-manual
@@ -37,8 +24,8 @@ lint:
   stage: test
   image: ghcr.io/astral-sh/ruff:alpine
   rules:
-    - *rule-code-merge-request-manual
-    - *rule-code-default-branch-manual
+    - *rule-merge-request-manual
+    - *rule-default-branch-manual
   dependencies: []
   interruptible: true
   allow_failure: true
@@ -55,8 +42,8 @@ lint:
 format:
   stage: test
   rules:
-    - *rule-code-merge-request-manual
-    - *rule-code-default-branch-manual
+    - *rule-merge-request-manual
+    - *rule-default-branch-manual
   image: ghcr.io/astral-sh/ruff:alpine
   dependencies: []
   interruptible: true
@@ -74,8 +61,8 @@ format:
 mypy:
   stage: test
   rules:
-    - *rule-code-merge-request-manual
-    - *rule-code-default-branch-manual
+    - *rule-merge-request-manual
+    - *rule-default-branch-manual
   image: ghcr.io/astral-sh/uv:python3.14-alpine
   dependencies: []
   interruptible: true
@@ -97,8 +84,8 @@ mypy:
 pyright:
   stage: test
   rules:
-    - *rule-code-merge-request-manual
-    - *rule-code-default-branch-manual
+    - *rule-merge-request-manual
+    - *rule-default-branch-manual
   image: node:24-alpine3.21
   dependencies: []
   interruptible: true
@@ -119,8 +106,8 @@ pyright:
 ty:
   stage: test
   rules:
-    - *rule-code-merge-request-manual
-    - *rule-code-default-branch-manual
+    - *rule-merge-request-manual
+    - *rule-default-branch-manual
   image: ghcr.io/astral-sh/uv:python3.14-alpine
   dependencies: []
   interruptible: true
