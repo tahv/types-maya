@@ -1,21 +1,27 @@
-# types-maya
 
-[![Source](https://img.shields.io/badge/source-%23fc6d25?logo=gitlab&logoColor=white)](https://gitlab.com/tahv/types-maya)
-[![PyPI](https://img.shields.io/pypi/v/types-maya?logo=python&logoColor=white)](https://pypi.org/project/types-maya)
-[![Typed](https://img.shields.io/pypi/types/types-maya?logo=python&logoColor=white)](https://pypi.org/project/types-maya/)
+<div align="center">
+  <h1>types-maya</h1>
+  <a href="https://pypi.org/project/types-maya">
+    <img alt="PyPI" src="https://img.shields.io/pypi/types/types-maya?logo=python&logoColor=white&style=for-the-badge">
+  </a>
+  <a href="https://pypi.org/project/types-maya">
+    <img alt="PyPI" src="https://img.shields.io/pypi/v/types-maya?style=for-the-badge">
+  </a>
+  <a href="https://www.buymeacoffee.com/tgambier">
+    <img alt="Buy Me a Coffee" style="height: 28px;" height="28" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png">
+  </a>
+  <p><b>External type annotations for Autodesk Maya Python API</b></p>
+  <a href="https://pypi.org/project/types-maya">PyPI</a>
+  • <a href="https://gitlab.com/tahv/types-maya">GitLab</a>
+  • <a href="https://github.com/tahv/types-maya">GitHub</a>
+  • <a href="https://gitlab.com/tahv/types-maya/-/blob/main/CHANGELOG.md">Changelog</a>
+</div>
 
-External type annotations for Autodesk Maya Python API.
+---
 
 Provide stubs for language servers such a
 [Pyright](https://github.com/microsoft/pyright)
 or [ty](https://github.com/astral-sh/ty).
-
-## Project Information
-
-- [**PyPI**](https://pypi.org/project/types-maya)
-- [**Source Code**](https://gitlab.com/tahv/types-maya)
-- [**Changelog**](https://gitlab.com/tahv/types-maya/-/blob/main/CHANGELOG.md)
-- [**GitHub Mirror**](https://github.com/tahv/types-maya)
 
 ## Installation
 
@@ -95,11 +101,9 @@ or open a [merge request](https://gitlab.com/tahv/types-maya/-/merge_requests).
 
 ## Alternatives
 
-- [maya-stubs](https://pypi.org/project/maya-stubs/)
-  ([source](https://github.com/Muream/maya-stubs))
-- [types-maya-strict](https://pypi.org/project/types-maya-strict/)
-  ([source](https://github.com/LumaPictures/cg-stubs/tree/master/maya))
-
----
-
-<a href="https://www.buymeacoffee.com/tgambier"><img alt="Buy Me a Coffee" style="height: 50px;" height="50" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"></a>
+- **maya-stubs:**
+  [PyPI](https://pypi.org/project/maya-stubs/)
+  • [GitHub](https://github.com/Muream/maya-stubs)
+- **types-maya-strict:**
+  [PyPI](https://pypi.org/project/types-maya-strict/)
+  • [GitHub](https://github.com/LumaPictures/cg-stubs/tree/master/maya)
