@@ -1,27 +1,30 @@
-
 <div align="center">
   <h1>types-maya</h1>
-  <a href="https://pypi.org/project/types-maya">
-    <img alt="PyPI" src="https://img.shields.io/pypi/types/types-maya?logo=python&logoColor=white&style=for-the-badge">
-  </a>
-  <a href="https://pypi.org/project/types-maya">
-    <img alt="PyPI" src="https://img.shields.io/pypi/v/types-maya?style=for-the-badge">
-  </a>
-  <a href="https://www.buymeacoffee.com/tgambier">
-    <img alt="Buy Me a Coffee" style="height: 28px;" height="28" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png">
-  </a>
+  <p>
+    <a href="https://pypi.org/project/types-maya">
+      <img alt="PyPI" src="https://img.shields.io/pypi/types/types-maya?logo=python&logoColor=white&style=for-the-badge">
+    </a>
+    <a href="https://pypi.org/project/types-maya">
+      <img alt="PyPI" src="https://img.shields.io/pypi/v/types-maya?style=for-the-badge&logo=python&logoColor=white">
+    </a>
+    <a href="https://www.buymeacoffee.com/tgambier">
+      <img alt="Buy Me a Coffee" style="height: 28px;" height="28" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png">
+    </a>
+  </p>
   <p><b>External type annotations for Autodesk Maya Python API</b></p>
-  <a href="https://pypi.org/project/types-maya">PyPI</a>
-  • <a href="https://gitlab.com/tahv/types-maya">GitLab</a>
-  • <a href="https://github.com/tahv/types-maya">GitHub</a>
-  • <a href="https://gitlab.com/tahv/types-maya/-/blob/main/CHANGELOG.md">Changelog</a>
+  <p>
+    <a href="https://pypi.org/project/types-maya">PyPI</a>
+    • <a href="https://gitlab.com/tahv/types-maya">GitLab</a>
+    • <a href="https://github.com/tahv/types-maya">GitHub</a>
+    • <a href="https://gitlab.com/tahv/types-maya/-/blob/main/CHANGELOG.md">Changelog</a>
+  </p>
 </div>
 
 ---
 
 Provide stubs for language servers such a
-[Pyright](https://github.com/microsoft/pyright)
-or [ty](https://github.com/astral-sh/ty).
+[Pyright](https://github.com/microsoft/pyright) or
+[ty](https://github.com/astral-sh/ty).
 
 ## Installation
 
@@ -34,13 +37,14 @@ pip install types-maya
 
 ## Stubs status
 
-- `maya.api.*`: maintained manually
-  and will likely remain incomplete for some time.
+- `maya.api.*`: maintained manually and will likely remain incomplete
+  for some time.
   Stubs are written from the
   [Maya 2025 Reference](https://help.autodesk.com/view/MAYADEV/2025/ENU/).
 - `maya.cmds`: generated from Maya Commands documentation
   using [cmdsgen](https://gitlab.com/tahv/cmdsgen).
-- `maya.OpenMaya*`: not something I'm focusing on, but contributions are welcome.
+- `maya.OpenMaya*`: not something I'm focusing on,
+  but contributions are welcome.
 
 | Import name               | Status               |
 |---------------------------|----------------------|
@@ -60,8 +64,9 @@ pip install types-maya
 
 ## Notes
 
-[`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated)
-is used to add context to some annotations. Some examples:
+[`Annotated`](https://docs.python.org/3/library/typing.html#typing.Annotated) is
+used to add context to some annotations.
+Some examples:
 
 A sequence of 16 floats.
 
