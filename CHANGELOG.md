@@ -7,9 +7,11 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ## [0.6.0](https://gitlab.com/tahv/types-maya/-/releases/0.6.0) - 2026-05-29
 
-- [`9e57464`](https://gitlab.com/tahv/mayafbx/-/commit/9e57464) **fead(cmds):**
-  add commands with no flags & render multi-use flags as `type | list[type]`
-- [`23046bf`](https://gitlab.com/tahv/mayafbx/-/commit/23046bf) **fix:**
+- [`9e574641`](https://gitlab.com/tahv/types-maya/-/commit/9e574641) **fead(cmds):**
+  add commands with no flags.
+- [`9e574641`](https://gitlab.com/tahv/types-maya/-/commit/9e574641) **fead(cmds):**
+  render multi-use flags as `type | list[type]`.
+- [`23046bfd`](https://gitlab.com/tahv/types-maya/-/commit/23046bfd) **fix:**
   wrong `MCommandMessage.addCommandOutputFilterCallback` return type
 
 ## [0.5.0](https://gitlab.com/tahv/types-maya/-/releases/0.5.0) - 2026-05-05
