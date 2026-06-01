@@ -13,6 +13,7 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
   render multi-use flags as `type | list[type]`.
 - [`23046bfd`](https://gitlab.com/tahv/types-maya/-/commit/23046bfd) **fix:**
   wrong `MCommandMessage.addCommandOutputFilterCallback` return type
+- **fix(om2):** add `maya.api.OpenMaya.MDistance.asCentimeters`.
 
 ## [0.5.0](https://gitlab.com/tahv/types-maya/-/releases/0.5.0) - 2026-05-05
 
