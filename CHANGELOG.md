@@ -5,6 +5,11 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ## Unreleased
 
+## [0.6.1](https://gitlab.com/tahv/types-maya/-/releases/0.6.1) - 2026-06-01
+
+- [`1c18c831`](https://gitlab.com/tahv/types-maya/-/commit/1c18c831) **fix(om2):**
+  add `maya.api.OpenMaya.MDistance.asCentimeters`.
+
 ## [0.6.0](https://gitlab.com/tahv/types-maya/-/releases/0.6.0) - 2026-05-29
 
 - [`9e574641`](https://gitlab.com/tahv/types-maya/-/commit/9e574641) **fead(cmds):**
@@ -13,7 +18,6 @@ and the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.
   render multi-use flags as `type | list[type]`.
 - [`23046bfd`](https://gitlab.com/tahv/types-maya/-/commit/23046bfd) **fix:**
   wrong `MCommandMessage.addCommandOutputFilterCallback` return type
-- **fix(om2):** add `maya.api.OpenMaya.MDistance.asCentimeters`.
 
 ## [0.5.0](https://gitlab.com/tahv/types-maya/-/releases/0.5.0) - 2026-05-05
 
